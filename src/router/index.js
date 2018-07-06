@@ -4,6 +4,7 @@ import Login from "@/components/login"
 import Detail from "../page/detail"
 import list from "../page/list"
 import productAbout from "../page/productAbout"
+import Echarts from "../page/echarts"
 Vue.use(Router)
 
 export default new Router({
@@ -38,6 +39,14 @@ export default new Router({
 				{ path: "/", name: "电话", component: productAbout.aboutTel },
 				{ path: "aboutTel", name: "电话", component: productAbout.aboutTel },
 				{ path: "aboutAdd", name: "地址", component: productAbout.aboutAdd }
+			]
+		},
+		{
+			path:"/Echarts",
+			name:"echarts图标",
+			component:Echarts,
+			children:[
+			
 			]
 		}
 	]

@@ -27,11 +27,25 @@
 							</router-link>
 
 						</li>
+						<li class="active">
+
+							<router-link to="/Echarts">
+								关于echarts
+							</router-link>
+
+						</li>
 						<li>
 
 							<router-link to="/productAbout">
 								联系我们
 							</router-link>
+
+						</li>
+						<li class="">
+
+							<a href="https://pangyaohua.github.io/my_project/dist/index.html#/">
+								github地址
+							</a>
 
 						</li>
 					</ul>

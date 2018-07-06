@@ -7,7 +7,8 @@ import Element from "element-ui"
 import 'element-ui/lib/theme-chalk/index.css'
 import $ from "jquery"
 import headerNav from '@/components/header_nav'
-
+//--引入echarts
+import echarts from "echarts"
 
 //--引入bootstrap样式表
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -17,6 +18,7 @@ import 'bootstrap/dist/js/bootstrap.min'
 //全局样式表
 import indexSheet from "./assets/index.css"
 
+Vue.prototype.$echarts=echarts
 Vue.config.productionTip = false
 Vue.use(headerNav)
 Vue.use(Element)
