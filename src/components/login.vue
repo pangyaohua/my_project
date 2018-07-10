@@ -1,19 +1,26 @@
 <template>
 	<div class="container">
-
-		<form class="form-signin">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="userName" class="sr-only">用户名:</label>
-			<input type="text" id="userName" class="form-control" placeholder="请输入用户名"  v-model="userName" required autofocus>
-			<label for="inputPassword" class="sr-only">Password</label>
-			<input type="password" id="inputPassword" class="form-control" v-model="pwd" placeholder="请输入密码" required>
-			<div class="checkbox text-left">
-				<label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
+		<div class="container-fluid">
+			<div class="row" style="text-align: center;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4" style="background:#fff;">
+					<form class="form-signin">
+						<h2 class="form-signin-heading">Please sign in</h2>
+						<label for="userName" class="sr-only">用户名:</label>
+						<input type="text" id="userName" class="form-control" placeholder="请输入用户名" v-model="userName" required autofocus>
+						<label for="inputPassword" class="sr-only">Password</label>
+						<input type="password" id="inputPassword" class="form-control" v-model="pwd" placeholder="请输入密码" required>
+						<div class="checkbox text-left">
+							<label>
+					            <input type="checkbox" value="remember-me"> Remember me
+					        </label>
+						</div>
+						<button class="btn btn-lg btn-primary btn-block" @click="login">Sign in</button>
+					</form>
+				</div>
+				<div class="col-md-4"></div>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" @click="login">Sign in</button>
-		</form>
+		</div>
 
 	</div>
 </template>
@@ -44,13 +51,30 @@
 </script>
 
 <style>
-html,body,#app{
-	width:100%;
-	height:100%;
-	margin:0;
-}
-
-form input{
-	margin-bottom:15px;
-}
+	html,
+	body,
+	#app {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+	
+	form input {
+		margin-bottom: 15px;
+	}
+	
+	.container {
+		width: 100%;
+		height: 100%;
+		background-image: url(../assets/images/bg.jpg);
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+	
+	.container-fluid{
+		height:100%;
+	}
+	.row{
+		padding-bottom:20px;
+	}
 </style>

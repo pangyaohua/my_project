@@ -42,11 +42,16 @@ export default new Router({
 			]
 		},
 		{
-			path:"/Echarts",
-			name:"echarts图标",
-			component:Echarts,
-			children:[
-			
+			path: "/Echarts",
+			name: "echarts图标",
+			component: Echarts,
+			children: [
+				{ path: "/", name: "折线图", component: Echarts.line },
+				{ path: "line", name: "折线图", component: Echarts.line },
+				{ path: "pie", name: "饼图", component: Echarts.pie },
+				{ path: "bar", name: "柱形图", component: Echarts.bar },
+				{ path: "spcialEchart", name: "特殊的echart", component: Echarts.spcialEchart },
+				{path:"moreEchart",name:"更多Echarts",component:Echarts.moreEchart}
 			]
 		}
 	]
