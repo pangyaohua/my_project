@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" id="echarts">
 
 		<!--<p>{{msg}}</p>
 		<div id="myChart" :style="{width: '300px', height: '300px'}"></div>-->
@@ -95,7 +95,7 @@
 	}
 </script>
 <style>
-	.el-menu-vertical-demo {
+	#echarts .el-menu-vertical-demo {
 		width: 60%;
 	}
 	
@@ -103,12 +103,15 @@
 		width: 20%;
 	}
 	
-	.nav_row {
-		padding-top: 45px;
+	#echarts .nav_row {
+		padding-top: 50px;
 	}
 	
-	.nav_row .col-md-4 {
+	#echarts .nav_row .col-md-4 {
 		text-align: left;
 		margin-left: -35px;
+	}
+	a{
+		color: #337ab7;		
 	}
 </style>

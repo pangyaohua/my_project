@@ -53,24 +53,6 @@
 
 			</div>
 		</nav>
-
-		<!--<ul class="nav nav-pills">
-			<li role="presentation" class="presentation active">
-				<router-link to="/detail">
-					产品介绍
-				</router-link>
-			</li>
-			<li role="presentation" class="presentation">
-				<router-link to="/list">
-					产品列表
-				</router-link>
-			</li>
-			<li role="presentation" class="presentation">
-				<router-link to="/productAbout">
-					联系我们
-				</router-link>
-			</li>
-		</ul>-->
 	</div>
 </template>
 
@@ -86,7 +68,7 @@
 			changeIcon() {
 				$(".navbar-nav").find("li").each(function() {
 					var a = $(this).find("a:first")[0];
-					if($(a).attr("href").indexOf(window.location.hash) >-1 ) {
+					if($(a).attr("href").indexOf(window.location.hash) > -1) {
 						$(a).parent("li").addClass("active");
 					} else {
 						$(a).parent("li").removeClass("active");
@@ -103,5 +85,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-	
+	.navbar-inverse .navbar-nav>.active>a,
+	.navbar-inverse .navbar-nav>.active>a:focus,
+	.navbar-inverse .navbar-nav>.active>a:hover {
+		color: #fff;
+	}
 </style>

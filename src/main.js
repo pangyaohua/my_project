@@ -18,6 +18,9 @@ import 'bootstrap/dist/js/bootstrap.min'
 //全局样式表
 import indexSheet from "./assets/index.css"
 
+//引入本地阿里图标
+import "./assets/iconfont/iconfont.css"
+
 Vue.prototype.$echarts=echarts
 Vue.config.productionTip = false
 Vue.use(headerNav)

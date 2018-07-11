@@ -1,25 +1,68 @@
 <template>
 	<div class="container">
 		<div class="container-fluid">
+
 			<div class="row" style="text-align: center;">
 				<div class="col-md-4"></div>
-				<div class="col-md-4" style="background:#fff;">
+				<div class="col-md-4" style="background:rgba(98, 132, 177,0.4)">
+					<h2>huahua@</h2>
 					<form class="form-signin">
-						<h2 class="form-signin-heading">Please sign in</h2>
-						<label for="userName" class="sr-only">用户名:</label>
-						<input type="text" id="userName" class="form-control" placeholder="请输入用户名" v-model="userName" required autofocus>
-						<label for="inputPassword" class="sr-only">Password</label>
-						<input type="password" id="inputPassword" class="form-control" v-model="pwd" placeholder="请输入密码" required>
+
+						<p class="userNameBox">
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							<label for="userName" class="sr-only">用户名:</label>
+							<input style="background:#fff;" type="text" id="userName" class="form-control" placeholder="请输入用户名" v-model="userName" required autofocus>
+						</p>
+
+						<p class="pwdBox">
+							<span class="glyphicon glyphicon-erase" aria-hidden="true"></span>
+							<label for="inputPassword" class="sr-only">Password</label>
+							<input style="background:#fff;" type="password" id="inputPassword" class="form-control" v-model="pwd" placeholder="请输入密码" required>
+						</p>
+
 						<div class="checkbox text-left">
 							<label>
 					            <input type="checkbox" value="remember-me"> Remember me
 					        </label>
 						</div>
-						<button class="btn btn-lg btn-primary btn-block" @click="login">Sign in</button>
+						<button style="padding:5px 10px;background:#d22f4c;" class="btn btn-lg btn-primary btn-block" @click="login">登录</button>
+						<p class="behaver">
+							<span class="text-left" @click="dialogVisible=true">立即注册</span>
+							<span class="text-right" @click="dialogVisible=true">忘记密码</span>
+						</p>
+
+						<p class="line">
+							<em></em>
+							<span>合作伙伴账号</span>
+							<em></em>
+						</p>
+						<p class="partner" style="width:80%;margin-left:10%;">
+							<a href="#">
+								<span class="iconfont icon-qq active"></span>
+							</a>
+							<a href="#">
+								<span class="iconfont icon-weixin"></span>
+							</a>
+							<a href="#">
+								<span class="iconfont icon-weibo"></span>
+							</a>
+							<a href="#">
+								<span class="iconfont icon-zhifubao"></span>
+							</a>
+
+						</p>
+						<el-dialog title="" :visible.sync="dialogVisible" width="50%" style="text-align: center;"> 
+							<span>{{title}}</span>
+							<span slot="footer" class="dialog-footer">
+							    <el-button @click="dialogVisible = false">取 消</el-button>
+							    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+	  						</span>
+						</el-dialog>
 					</form>
 				</div>
 				<div class="col-md-4"></div>
 			</div>
+
 		</div>
 
 	</div>
@@ -32,18 +75,19 @@
 			return {
 				userName: "admin",
 				pwd: "123456",
-				msg: "showTime"
+				msg: "showTime",
+				dialogVisible: false,
+				title: "暂不支持此功能"
 			}
 		},
 		methods: {
 			login() {
-				alert(this.pwd);
 				if(this.userName == "" || this.pwd == "") {
-					//---提示用户名与密码为必填项
-					alert("输入用户名与密码");
+					
 				} else {
 					//--路由跳转，
 					this.$router.push('/detail')
+					return;
 				}
 			}
 		}
@@ -71,10 +115,123 @@
 		background-repeat: no-repeat;
 	}
 	
-	.container-fluid{
-		height:100%;
+	.container-fluid {
+		vertical-align: middle;
+		height: 100%;
+		position: relative;
 	}
-	.row{
-		padding-bottom:20px;
+	
+	.row {
+		margin-top: 10%;
+		padding-bottom: 20px;
+	}
+	
+	.row form {
+		width: 80%;
+		margin-left: 10%;
+		text-align: center;
+		color: #fff;
+	}
+	
+	.col-md-4 {
+		padding: 20px 15px;
+		padding-top: 20px;
+	}
+	
+	h2 {
+		padding-bottom: 15px;
+		color: #fff;
+		font-size: 18px;
+	}
+	
+	.userNameBox,
+	.pwdBox {
+		width: 100%;
+		position: relative;
+		height: 35px;
+		line-height: 35px;
+	}
+	
+	.userNameBox input,
+	.pwdBox input {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		padding-left: 35px;
+		background-color: #fff!important;
+		border: none;
+		color: ##000;
+	}
+	
+	.userNameBox span,
+	.pwdBox span {
+		position: absolute;
+		left: 10px;
+		z-index: 100;
+		color: #d22f4c;
+		height: 100%;
+		line-height: 35px;
+	}
+	
+	.userNameBox span:before,
+	.pwdBox span:before {
+		display: inline-block;
+		size: 15px;
+	}
+	
+	input:-webkit-autofill {
+		background-color: rgb(255, 255, 255)!important;
+		border: none;
+	}
+	
+	.behaver,
+	.partner {
+		width: 100%;
+		padding: 15px 0;
+		display: -webkit-flex;
+	}
+	
+	.active {
+		/*color: rgb(210, 47, 76);*/
+	}
+	
+	.behaver span,
+	.partner a {
+		-webkit-flex: 1;
+		display: inline-block;
+		cursor: pointer;
+	}
+	
+	.partner {
+		padding: 15px 0;
+	}
+	
+	.partner a span {
+		font-size: 30px;
+		color: #fff;
+	}
+	
+	.partner a:hover span {
+		color: rgb(210, 47, 76);
+	}
+	
+	.line {
+		height: auto;
+		display: -webkit-flex;
+		line-height: 20px;
+	}
+	
+	.line em {
+		-webkit-flex: 1;
+		height: 1px;
+		background: #fff;
+		margin-top: 10px;
+	}
+	
+	.line span {
+		display: inline-block;
+		width: 45%;
+		height: 20px;
+		background: rgba(98, 132, 177, 0.4);
 	}
 </style>

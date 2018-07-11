@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" id="productAbout">
 		<header-nav></header-nav>
 		<div class="row">
 			<div class="col-md-4" style="height: 100%;margin-left:-60px">
@@ -41,8 +41,8 @@
 </script>
 
 <style>
-	.row {
-		padding-top: 20px;
+	#productAbout .row {
+		padding-top: 30px;
 	}
 	
 	h4 a {
@@ -53,7 +53,7 @@
 		color: #fff;
 	}
 	
-	a:-webkit-any-link {
+	#productAbout a:-webkit-any-link {
 		color: #fff;
 	}
 </style>

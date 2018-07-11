@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="com-md-12">
 					<p class="left">
-						<el-button type="primary" icon="el-icon-edit"  data-toggle="modal" data-target="#myModal" @click="add()">新加</el-button>
+						<el-button type="primary" icon="el-icon-edit" data-toggle="modal" data-target="#myModal" @click="add()">新加</el-button>
 					</p>
 				</div>
 			</div>
@@ -14,36 +14,23 @@
 				<div class="col-md-4" v-for="(item,index) in dataList" :key="item.id">
 					<div class="listBox">
 						<p>{{index}}-{{item.name}}</p>
-						<el-button  data-toggle="modal" data-target="#myModal" @click="edit(index)">编辑</el-button>
+						<el-button data-toggle="modal" data-target="#myModal" @click="edit(index)">编辑</el-button>
 					</div>
 				</div>
 			</div>
-
-			<!--<el-dialog title="请输入你要添加的内容" :visible.sync="dialogFormVisible">
-				<el-form>
-					<el-form-item label="内容" :label-width="formLabelWidth">
-						<el-input v-model="title" auto-complete="off"></el-input>
-					</el-form-item>
-				</el-form>
-				<div slot="footer" class="dialog-footer" style="text-align: center;">
-					<el-button @click="dialogFormVisible = false">取消</el-button>
-					<el-button type="primary" @click="editSure">确定</el-button>
-				</div>
-			</el-dialog>-->
-			<!-- Button trigger modal -->
 
 			<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" v-show="dialogFormVisible">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
-						<div class="modal-header">
+						<div class="modal-header" style="">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<h4 class="modal-title" id="myModalLabel">请输入你要添加的内容</h4>
 						</div>
 						<div class="modal-body">
-							<input type="text" v-model="title" placeholder="请输入内容" />
+							<input type="text" v-model="title" placeholder="请输入内容" style="border-radius: 5%;width: 50%;" />
 						</div>
-						<div class="modal-footer">
+						<div class="modal-footer" style="text-align: center;border-top:none;">
 							<button type="button" class="btn btn-default" @click="dialogFormVisible = false" data-dismiss="modal">Close</button>
 							<button type="button" class="btn btn-primary" @click="editSure">Save changes</button>
 						</div>
@@ -85,7 +72,7 @@
 			edit(val) {
 				this.title = "";
 				this.isAdd = false;
-				
+
 				this.dialogFormVisible = true;
 				console.log(val);
 				this.editIndex = val;
@@ -100,7 +87,7 @@
 						return false;
 					}
 					this.dataList[this.editIndex].name = this.title;
-				}else{
+				} else {
 					alert("请输入内容哦！");
 					return false;
 				}
@@ -128,10 +115,10 @@
 </script>
 
 <style>
-	
-	.listContainer{
-		padding-top:15px;
+	.listContainer {
+		padding-top: 15px;
 	}
+	
 	.productList {
 		padding-top: 15px;
 	}
@@ -145,7 +132,7 @@
 	.listContainer p {
 		width: 100%;
 		text-align: center;
-		padding-top:10px;
+		padding-top: 10px;
 	}
 	
 	p.left {
