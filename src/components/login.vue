@@ -123,7 +123,7 @@
 	}
 	
 	#loginContainer .row {
-		margin-top: 10%;
+		margin-top: 3%;
 		padding-bottom: 20px;
 	}
 	
