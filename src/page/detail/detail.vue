@@ -1,7 +1,9 @@
 <template>
 	<div class="container">
 		<header-nav></header-nav>
-		<router-view></router-view>
+		<div class="container-fluid">
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 <script>
@@ -25,7 +27,5 @@
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container{
-	padding-top:20px;
-}
+
 </style>

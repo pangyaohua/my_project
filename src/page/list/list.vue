@@ -1,7 +1,7 @@
 <template>
 	<div class="productList container">
 		<header-nav></header-nav>
-		<div class="listContainer">
+		<div class="listContainer container-fluid">
 			<!--<p class="left" @click="loadMore"><button>加载更多</button></p>-->
 			<div class="row">
 				<div class="com-md-12">
@@ -115,13 +115,6 @@
 </script>
 
 <style>
-	.listContainer {
-		padding-top: 15px;
-	}
-	
-	.productList {
-		padding-top: 15px;
-	}
 	
 	.listContainer ul {
 		margin: 0;

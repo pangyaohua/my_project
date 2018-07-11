@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" id="loginContainer">
 		<div class="container-fluid">
 
 			<div class="row" style="text-align: center;">
@@ -20,7 +20,7 @@
 							<input style="background:#fff;" type="password" id="inputPassword" class="form-control" v-model="pwd" placeholder="请输入密码" required>
 						</p>
 
-						<div class="checkbox text-left">
+						<div class="checkbox text-left" style="padding:10px 0">
 							<label>
 					            <input type="checkbox" value="remember-me"> Remember me
 					        </label>
@@ -101,13 +101,14 @@
 		width: 100%;
 		height: 100%;
 		margin: 0;
+		padding:0;
 	}
 	
 	form input {
 		margin-bottom: 15px;
 	}
 	
-	.container {
+	#loginContainer {
 		width: 100%;
 		height: 100%;
 		background-image: url(../assets/images/bg.jpg);
@@ -115,30 +116,30 @@
 		background-repeat: no-repeat;
 	}
 	
-	.container-fluid {
+	#loginContainer .container-fluid {
 		vertical-align: middle;
 		height: 100%;
 		position: relative;
 	}
 	
-	.row {
+	#loginContainer .row {
 		margin-top: 10%;
 		padding-bottom: 20px;
 	}
 	
-	.row form {
+	#loginContainer .row form {
 		width: 80%;
 		margin-left: 10%;
 		text-align: center;
 		color: #fff;
 	}
 	
-	.col-md-4 {
+	#loginContainer .col-md-4 {
 		padding: 20px 15px;
 		padding-top: 20px;
 	}
 	
-	h2 {
+	#loginContainer h2 {
 		padding-bottom: 15px;
 		color: #fff;
 		font-size: 18px;
@@ -150,6 +151,7 @@
 		position: relative;
 		height: 35px;
 		line-height: 35px;
+		padding:0;
 	}
 	
 	.userNameBox input,
@@ -160,13 +162,16 @@
 		padding-left: 35px;
 		background-color: #fff!important;
 		border: none;
-		color: ##000;
+		color: #000;
+		height: 35px;
+		line-height: 35px;
 	}
 	
 	.userNameBox span,
 	.pwdBox span {
 		position: absolute;
 		left: 10px;
+		top:0;
 		z-index: 100;
 		color: #d22f4c;
 		height: 100%;

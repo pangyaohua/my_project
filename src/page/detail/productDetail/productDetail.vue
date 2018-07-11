@@ -1,6 +1,5 @@
 <template>
-	<div class="container">
-
+	<div>
 		<div class="row text-left">
 			<div class="col-md-12 col-xs-12">
 
@@ -22,7 +21,6 @@
 				<a href="https://cn.vuejs.org/">https://cn.vuejs.org/</a>
 			</div>
 		</div>
-
 	</div>
 
 </template>
@@ -39,7 +37,5 @@
 </script>
 
 <style>
-.row{
-	padding:10px 10px;
-}
+	
 </style>

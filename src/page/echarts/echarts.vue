@@ -3,9 +3,9 @@
 
 		<!--<p>{{msg}}</p>
 		<div id="myChart" :style="{width: '300px', height: '300px'}"></div>-->
-
+		<header-nav></header-nav>
 		<div class="container-fluid">
-			<header-nav></header-nav>
+
 			<div class="row nav_row">
 				<div class="col-md-4">
 					<el-radio-group v-model="isCollapse" style="margin-bottom: 20px;text-align:left;padding-left:20px">
@@ -39,7 +39,7 @@
 									</router-link>
 								</el-menu-item>
 							</el-menu-item-group>
-							<el-submenu index="1-4" >
+							<el-submenu index="1-4">
 								<span slot="title">剩余之图形</span>
 								<el-menu-item disabled index="1-4-1">剩余之图形</el-menu-item>
 							</el-submenu>
@@ -77,7 +77,6 @@
 </template>
 
 <script>
-	
 	export default {
 		data() {
 			return {
@@ -103,15 +102,13 @@
 		width: 20%;
 	}
 	
-	#echarts .nav_row {
-		padding-top: 50px;
-	}
 	
 	#echarts .nav_row .col-md-4 {
 		text-align: left;
 		margin-left: -35px;
 	}
-	a{
-		color: #337ab7;		
+	
+	a {
+		color: #337ab7;
 	}
 </style>

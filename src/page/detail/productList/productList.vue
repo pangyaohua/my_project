@@ -96,20 +96,7 @@
 		height: 100%;
 	}
 	
-	.productList {
-		padding-top: 15px;
-	}
 	
-	.productList ul {
-		margin: 0;
-		padding: 0;
-		text-align: left;
-	}
-	
-	.productList p {
-		width: 100%;
-		text-align: center;
-	}
 	
 	p.left {
 		text-align: left;
