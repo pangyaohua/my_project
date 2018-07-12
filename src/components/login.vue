@@ -51,13 +51,15 @@
 							</a>
 
 						</p>
-						<el-dialog title="" :visible.sync="dialogVisible" width="50%" style="text-align: center;"> 
+
+						<el-dialog class="dialog" title="" :visible.sync="dialogVisible" style="text-align: center;">
 							<span>{{title}}</span>
 							<span slot="footer" class="dialog-footer">
 							    <el-button @click="dialogVisible = false">取 消</el-button>
 							    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
 	  						</span>
 						</el-dialog>
+
 					</form>
 				</div>
 				<div class="col-md-4"></div>
@@ -83,7 +85,7 @@
 		methods: {
 			login() {
 				if(this.userName == "" || this.pwd == "") {
-					
+
 				} else {
 					//--路由跳转，
 					this.$router.push('/detail')
@@ -101,7 +103,7 @@
 		width: 100%;
 		height: 100%;
 		margin: 0;
-		padding:0;
+		padding: 0;
 	}
 	
 	form input {
@@ -151,7 +153,7 @@
 		position: relative;
 		height: 35px;
 		line-height: 35px;
-		padding:0;
+		padding: 0;
 	}
 	
 	.userNameBox input,
@@ -171,7 +173,7 @@
 	.pwdBox span {
 		position: absolute;
 		left: 10px;
-		top:0;
+		top: 0;
 		z-index: 100;
 		color: #d22f4c;
 		height: 100%;
@@ -238,5 +240,20 @@
 		width: 45%;
 		height: 20px;
 		background: rgba(98, 132, 177, 0.4);
+	}
+	
+	.el-dialog__footer {
+		text-align: center;
+	}
+	/*利用媒体查询控制dialog宽度*/
+	@media screen and (max-width: 675px) {
+		.el-dialog {
+			width: 55%;
+		}
+	}
+	@media screen and (min-width: 675px) {
+		.el-dialog {
+			width: 30%;
+		}
 	}
 </style>
