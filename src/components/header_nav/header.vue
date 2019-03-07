@@ -66,6 +66,7 @@
 		},
 		methods: {
 			changeIcon() {
+				//根据地址栏参数判断设置icon的选中状态
 				$(".navbar-nav").find("li").each(function() {
 					var a = $(this).find("a:first")[0];
 					if($(a).attr("href").indexOf(window.location.hash) > -1) {

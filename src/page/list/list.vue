@@ -96,20 +96,6 @@
 				this.dialogFormVisible = false;
 
 			}
-			//----axios-加载更多数据----测试
-			/*loadMore() {
-				axios.get('http://10.63.106.134:8082/sdzyV2/drafts/findPersonByFourChannel.do',{
-					params:{
-						"fourChannel":"Q86040004"
-					}
-				})
-				.then(function(response) {
-					console.log(response);
-				})
-				.catch(function(error) {
-					console.log(error);
-				});
-			}*/
 		}
 	}
 </script>

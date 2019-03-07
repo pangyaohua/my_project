@@ -10,8 +10,8 @@
 
 						<p class="userNameBox">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							<label for="userName" class="sr-only">用户名:</label>
-							<input style="background:#fff;" type="text" id="userName" class="form-control" placeholder="请输入用户名" v-model="userName" required autofocus>
+							<label for="userCard" class="sr-only">用户名:</label>
+							<input style="background:#fff;" type="text" id="userCard" class="form-control" placeholder="请输入用户名" v-model="userCard" required autofocus>
 						</p>
 
 						<p class="pwdBox">
@@ -71,11 +71,12 @@
 </template>
 
 <script>
+	import axios from 'axios'
 	export default {
 		"name": "login",
 		data() {
 			return {
-				userName: "admin",
+				userCard: "",
 				pwd: "123456",
 				msg: "showTime",
 				dialogVisible: false,
@@ -84,12 +85,32 @@
 		},
 		methods: {
 			login() {
+				let _this=this;
 				if(this.userName == "" || this.pwd == "") {
 
 				} else {
-					//--路由跳转，
-					this.$router.push('/detail')
-					return;
+					//请求后台接口--
+					axios
+						.get("http://apis.juhe.cn/idcard/index", {
+							params: {
+								"cardno": _this.userCard,
+								"dtype": "json",
+								"key": "96bd4342560c03dfe30a1ae9d8eca536"
+							}
+						})
+						.then(function(data) {
+							console.log(data);
+							alert("登录成功");
+							//--路由跳转，
+							this.$router.push('/detail')
+							return;
+						})
+						.catch(function(res) {
+							alert("登录失败")
+							console.log(res);
+						})
+
+					
 				}
 			}
 		}
@@ -246,11 +267,13 @@
 		text-align: center;
 	}
 	/*利用媒体查询控制dialog宽度*/
+	
 	@media screen and (max-width: 675px) {
 		.el-dialog {
 			width: 55%;
 		}
 	}
+	
 	@media screen and (min-width: 675px) {
 		.el-dialog {
 			width: 30%;
