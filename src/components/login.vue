@@ -11,7 +11,7 @@
 						<p class="userNameBox">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 							<label for="userCard" class="sr-only">用户名:</label>
-							<input style="background:#fff;" type="text" id="userCard" class="form-control" placeholder="请输入用户名" v-model="userCard" required autofocus>
+							<input style="background:#fff;" type="text" id="userCard" class="form-control" placeholder="请输入用户名(身份证号)" v-model="userCard" required autofocus>
 						</p>
 
 						<p class="pwdBox">
@@ -72,12 +72,13 @@
 
 <script>
 	import axios from 'axios'
+	const Jsonbrid = "https://bird.ioliu.cn/v1?url=";
 	export default {
 		"name": "login",
 		data() {
 			return {
 				userCard: "",
-				pwd: "123456",
+				pwd: "",
 				msg: "showTime",
 				dialogVisible: false,
 				title: "暂不支持此功能"
@@ -85,33 +86,43 @@
 		},
 		methods: {
 			login() {
-				let _this=this;
-				if(this.userName == "" || this.pwd == "") {
+				let _this = this;
+				if(this.userCard == "" || this.pwd == "") {
 
 				} else {
-					//请求后台接口--
-					axios
-						.get("http://apis.juhe.cn/idcard/index", {
-							params: {
-								"cardno": _this.userCard,
-								"dtype": "json",
-								"key": "96bd4342560c03dfe30a1ae9d8eca536"
-							}
-						})
-						.then(function(data) {
-							console.log(data);
-							alert("登录成功");
-							//--路由跳转，
-							this.$router.push('/detail')
-							return;
-						})
-						.catch(function(res) {
-							alert("登录失败")
-							console.log(res);
-						})
 
-					
+					//请求后台接口--
+					axios({
+							method: "post",
+							url: Jsonbrid + "http://apis.juhe.cn/idcard/index",
+							data: {
+								"cardno": _this.userCard,
+								"key": "96bd4342560c03dfe30a1ae9d8eca536",
+								"dtype": "json"
+							}
+
+						})
+						.then(function(response) {　　
+							console.log(response)
+							console.log(response.data.resultcode);
+							if(response.data.resultcode == "200") {
+								//--路由跳转，
+								_this.$router.push('/detail');
+							} else {
+								_this.open();
+							}
+
+						}).catch(function(error) {　　
+							console.log("失败！" + error);
+
+						});
+
 				}
+			},
+			open() {
+				this.$alert('<strong>请输入正确的用户名</strong>', '提示', {
+					dangerouslyUseHTMLString: true
+				});
 			}
 		}
 	}
